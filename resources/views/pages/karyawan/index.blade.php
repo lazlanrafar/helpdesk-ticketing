@@ -82,7 +82,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.lokasi.update')
+                                        @include('pages.karyawan.update')
                                     @endforeach
                                 </tbody>
                             </table>
