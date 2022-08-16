@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
+use App\Models\Lokasi;
 
 class KaryawanController extends Controller
 {
@@ -15,20 +16,12 @@ class KaryawanController extends Controller
     public function index()
     {
         $items = Karyawan::all();
+        $list_lokasi = Lokasi::all();
 
         return view('pages.karyawan.index', [
             "items" => $items,
+            "list_lokasi" => $list_lokasi
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,7 +32,8 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Karyawan::create($request->all());
+        return redirect()->route('karyawan.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
