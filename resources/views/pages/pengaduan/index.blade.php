@@ -34,8 +34,6 @@
                                         <th>Tanggal Pengaduan</th>
                                         <th>Tanggal Proses</th>
                                         <th>Tanggal Selesai</th>
-                                        <th>Troubleshooting</th>
-                                        <th>Keterangan</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -45,7 +43,19 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nama_kategori }}</td>
+                                            <td>{{ $item->pelapor->karyawan->nama }}</td>
+                                            <td>{{ $item->teknisi->nama }}</td>
+                                            <td>{{ $item->subkategori->nama_kategori }}</td>
+                                            <td>
+                                                {{ $item->lokasi->nama_lokasi }},
+                                                {{ $item->lokasi->departemen }},
+                                                {{ $item->lokasi->sub_departemen }}
+                                            </td>
+                                            <td>{{ $item->jenis_pengaduan }}</td>
+                                            <td>{{ $item->tanggal_pengaduan }}</td>
+                                            <td>{{ $item->tanggal_proses }}</td>
+                                            <td>{{ $item->tanggal_selesai }}</td>
+                                            <td>{{ $item->status }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pengaduan.destroy', $item->id) }}" method="POST"
