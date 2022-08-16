@@ -41,6 +41,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/sub-kategori" class="nav-link {{ Request::is('sub-kategori') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Sub Kategori</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-clock"></i>
                         <p>Riwayat Pengaduan</p>

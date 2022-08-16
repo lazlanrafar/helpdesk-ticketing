@@ -18,4 +18,8 @@ class SubKategori extends Model
         'id_kategori',
         'nama_kategori',
     ];
+
+    public function kategoris(){
+        return $this->belongsTo('App\Models\Kategori', 'id_kategori');
+    }
 }
