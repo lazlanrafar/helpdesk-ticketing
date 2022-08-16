@@ -5,13 +5,14 @@
             <div class="card-body login-card-body">
                 <div class="login-logo">
                     <a href="/">
-                        <img src="{{ url('/bright.png') }}" alt="Logo Bright" width="100">
+                        Disini Logo
                     </a>
                 </div>
                 <p class="login-box-msg">Halaman Ganti Password</p>
 
-                <form action="{{ route('changepass.update',request()->session()->get('user')['id']) }}" method="post">
-                    @csrf @method('PUT')
+                <form action="{{ route('ganti-password.update',request()->session()->get('user')['id']) }}" method="post">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <div class="input-group">
                             <input type="password" name="password" class="form-control" placeholder="Password Lama">
@@ -49,7 +50,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-warning btn-block">Ganti password</button>
+                            <button type="submit" class="btn btn-primary btn-block">Ganti password</button>
                         </div>
                     </div>
                 </form>

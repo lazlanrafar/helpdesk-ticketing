@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GantiPassController;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
@@ -26,6 +27,8 @@ Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->nam
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest');
 
 Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::resource('/ganti-password', GantiPassController::class)->middleware('auth');
 
 Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('/karyawan', KaryawanController::class)->middleware('auth');
