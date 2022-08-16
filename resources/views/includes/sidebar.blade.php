@@ -35,9 +35,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/riwayat" class="nav-link {{ Request::is('riwayat') ? 'active' : '' }}">
+                    <a href="/kategori" class="nav-link {{ Request::is('kategori') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
-                        <p>Pengaduan</p>
+                        <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
