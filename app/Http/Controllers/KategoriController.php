@@ -54,6 +54,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Kategori::find($id);
+        $item->delete();
+        return redirect()->route('kategori.index')->with('success', 'Data berhasil dihapus');
     }
 }
