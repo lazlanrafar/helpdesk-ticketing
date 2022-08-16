@@ -15,10 +15,13 @@ class Karyawan extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_user',
         'id_lokasi',
         'nama',
         'jabatan',
         'alamat',
     ];
+    
+    public function lokasi(){
+        return $this->belongsTo('App\Models\Lokasi', 'id_lokasi');
+    }
 }

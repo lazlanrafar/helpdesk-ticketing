@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/brand" class="nav-link {{ Request::is('brand') ? 'active' : '' }}">
+                    <a href="/karyawan" class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Karyawan</p>
                     </a>
