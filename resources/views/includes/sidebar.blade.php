@@ -17,9 +17,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/link" class="nav-link {{ Request::is('link') ? 'active' : '' }}">
+                    <a href="/pengaduan" class="nav-link {{ Request::is('pengaduan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-link"></i>
-                        <p>Perangkat</p>
+                        <p>Pengaduan</p>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GantiPassController;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\KategoriController;
@@ -31,6 +32,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::resource('/ganti-password', GantiPassController::class)->middleware('auth');
 
 Route::resource('/', DashboardController::class)->middleware('auth');
+Route::resource('/pengaduan', PengaduanController::class)->middleware('auth');
 Route::resource('/karyawan', KaryawanController::class)->middleware('auth');
 Route::resource('/lokasi', LokasiController::class)->middleware('auth');
 Route::resource('/kategori', KategoriController::class)->middleware('auth');
