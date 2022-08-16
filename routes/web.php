@@ -25,6 +25,8 @@ use App\Http\Controllers\UserController;
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest');
 
+Route::post('/logout', [AuthController::class, 'logout']);
+
 Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('/karyawan', KaryawanController::class)->middleware('auth');
 Route::resource('/lokasi', LokasiController::class)->middleware('auth');
