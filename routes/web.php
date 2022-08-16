@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LokasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', DashboardController::class);
+Route::resource('/lokasi', LokasiController::class);
