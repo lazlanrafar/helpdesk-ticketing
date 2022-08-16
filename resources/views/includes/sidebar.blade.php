@@ -46,7 +46,7 @@
                         <p>Sub Kategori</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-clock"></i>
                         <p>Riwayat Pengaduan</p>
@@ -57,9 +57,9 @@
                         <i class="nav-icon fas fa-book"></i>
                         <p>Laporan</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
+                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>User</p>
                     </a>
