@@ -21,16 +21,6 @@ class KategoriController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,7 +28,8 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kategori::create($request->all());
+        return redirect()->route('kategori.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
