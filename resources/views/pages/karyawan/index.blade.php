@@ -48,7 +48,7 @@
                                             <td>{{ $item->alamat }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('lokasi.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('karyawan.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
