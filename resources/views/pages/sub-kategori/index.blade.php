@@ -36,7 +36,7 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->kategories->nama_kategori }}</td>
+                                            <td>{{ $item->kategoris->nama_kategori }}</td>
                                             <td>{{ $item->nama_kategori }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"

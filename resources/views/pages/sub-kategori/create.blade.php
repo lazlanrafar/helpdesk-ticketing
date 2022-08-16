@@ -2,7 +2,7 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('kategori.store') }}" method="POST">
+            <form action="{{ route('sub-kategori.store') }}" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
