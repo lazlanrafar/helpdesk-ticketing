@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('id_lokasi');
             $table->string('jenis_pengaduan');
             $table->date('tanggal_pengaduan');
-            $table->date('tanggal_proses');
-            $table->date('tanggal_selesai');
+            $table->date('tanggal_proses')->nullable();
+            $table->date('tanggal_selesai')->nullable();
             $table->string('keterangan');
             $table->string('troubleshooting');
             $table->string('status');

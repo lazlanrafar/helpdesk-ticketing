@@ -8,4 +8,12 @@
             </div>
         </div>
     </div>
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                @include('includes.error-card')
+            </div>
+        </div>
+    </section>
 @endsection

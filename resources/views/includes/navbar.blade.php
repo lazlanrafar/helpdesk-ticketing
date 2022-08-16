@@ -2,9 +2,7 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
-                ><i class="fas fa-bars"></i
-            ></a>
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
     </ul>
 
@@ -12,20 +10,11 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img
-                    src="{{ url('/user.png') }}"
-                    class="user-image img-circle"
-                    alt="User Image"
-                />
-                <span class="hidden-xs" style="color: black">Nama</span>
+                <img src="{{ url('/user.png') }}" class="user-image img-circle" alt="User Image" />
+                <span class="hidden-xs" style="color: black">{{ request()->session()->get('user')['username'] }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                {{-- @if (request()->session()->get('user')['akses'] == 'STAFF')
-                <a href="/user" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> User List
-                </a>
-                @endif --}}
-                <a href="/changepass" class="dropdown-item">
+                <a href="/ganti-password" class="dropdown-item">
                     <i class="fas fa-lock mr-2"></i> Ganti Password
                 </a>
                 <div class="dropdown-divider"></div>
