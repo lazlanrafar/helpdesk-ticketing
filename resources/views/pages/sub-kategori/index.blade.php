@@ -40,7 +40,7 @@
                                             <td>{{ $item->nama_kategori }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('kategori.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('sub-kategori.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')

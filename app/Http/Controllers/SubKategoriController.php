@@ -58,6 +58,8 @@ class SubKategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = SubKategori::find($id);
+        $item->delete();
+        return redirect()->route('sub-kategori.index')->with('success', 'Data berhasil dihapus');
     }
 }
