@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <strong>Copyright &copy; 2022 -
-        Kevin Kusuma Wicaksono</strong>
+    </strong>
     All rights reserved.
 </footer>
 
