@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\KategoriController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +19,6 @@ use App\Http\Controllers\LokasiController;
 */
 
 Route::resource('/', DashboardController::class);
+Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/lokasi', LokasiController::class);
+Route::resource('/kategori', KategoriController::class);
