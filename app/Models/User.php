@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_karyawan',
         'username',
         'password',
         'level',
@@ -33,4 +34,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function karyawan(){
+        return $this->belongsTo('App\Models\Karyawan', 'id_karyawan');
+    }
 }

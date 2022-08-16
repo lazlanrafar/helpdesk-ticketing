@@ -7,6 +7,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SubKategoriController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/lokasi', LokasiController::class);
 Route::resource('/kategori', KategoriController::class);
 Route::resource('/sub-kategori', SubKategoriController::class);
+Route::resource('/user', UserController::class);
