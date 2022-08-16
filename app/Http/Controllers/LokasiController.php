@@ -34,28 +34,6 @@ class LokasiController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -64,7 +42,9 @@ class LokasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Lokasi::findOrFail($id);
+        $item->update($request->all());
+        return redirect()->route('lokasi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -75,6 +55,8 @@ class LokasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Lokasi::findOrFail($id);
+        $item->delete();
+        return redirect()->route('lokasi.index')->with('success', 'Data berhasil dihapus');
     }
 }

@@ -76,7 +76,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        {{-- @include('pages.lokasi.update') --}}
+                                        @include('pages.lokasi.update')
                                     @endforeach
                                 </tbody>
                             </table>

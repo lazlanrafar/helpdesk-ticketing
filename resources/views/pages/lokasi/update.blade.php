@@ -17,24 +17,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="lokasi">Nama Lokasi</label>
-                        <select name="nama_lokasi" id="lokasi" onchange="handleUnit()" class="form-control" required>
-                            <option selected value="{{ $item->nama_lokasi }}">{{ $item->nama_lokasi }}</option>
-                            @foreach ($list_nama_lokasi as $nama)
-                                @if ($nama != $item->nama_lokasi)
-                                    <option value="{{ $nama }}">{{ $nama }}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" id="lokasi" placeholder="Masukan lokasi"
+                            name="nama_lokasi" value="{{ $item->nama_lokasi }}" required />
                     </div>
                     <div class="form-group">
-                        <label>Unit</label>
-                        <input type="text" class="form-control" id="unit" placeholder="Enter unit"
-                            name="unit" value="{{ $item->unit }}" required />
+                        <label for="departemen">Departemen</label>
+                        <input type="text" class="form-control" id="departemen" placeholder="Masukan departemen"
+                            name="departemen" value="{{ $item->departemen }}" required />
                     </div>
                     <div class="form-group">
-                        <label for="sublokasi">Sublokasi</label>
-                        <input type="text" class="form-control" id="sublokasi" placeholder="Enter sublokasi"
-                            name="sublokasi" value="{{ $item->sublokasi }}" required />
+                        <label for="sub_departemen">Sub Departemen</label>
+                        <input type="text" class="form-control" id="sub_departemen"
+                            placeholder="Masukan sub departemen" name="sub_departemen"
+                            value="{{ $item->sub_departemen }}" required />
                     </div>
 
                 </div>
@@ -42,7 +37,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-warning">
+                    <button type="submit" class="btn btn-primary">
                         Update
                     </button>
                 </div>
