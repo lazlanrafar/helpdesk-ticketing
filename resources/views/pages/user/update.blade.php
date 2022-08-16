@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="Password"
-                            placeholder="Masukan Password  untuk update" name="Password" />
+                            placeholder="Masukan Password untuk update" name="password" />
                     </div>
                     <div class="form-group">
                         <label for="level">Level</label>

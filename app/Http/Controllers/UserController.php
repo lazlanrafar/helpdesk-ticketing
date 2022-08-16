@@ -41,28 +41,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,7 +49,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        if($data['password'] == ""){
+            unset($data['password']);
+        }else{
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

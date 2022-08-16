@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="Password" placeholder="Masukan Password"
-                            name="Password" required />
+                            name="password" required />
                     </div>
                     <div class="form-group">
                         <label for="level">Level</label>
