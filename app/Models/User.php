@@ -34,4 +34,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function karyawan(){
+        return $this->belongsTo('App\Models\Karyawan', 'id_karyawan');
+    }
 }

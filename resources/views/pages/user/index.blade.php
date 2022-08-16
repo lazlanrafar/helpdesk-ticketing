@@ -26,6 +26,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nama</th>
                                         <th>Username</th>
                                         <th>Level</th>
                                         <th>Aksi</th>
@@ -36,7 +37,9 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $item->nama_kategori }}</td>
+                                            <td>{{ $item->karyawan->nama }}</td>
+                                            <td>{{ $item->username }}</td>
+                                            <td>{{ $item->level }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
