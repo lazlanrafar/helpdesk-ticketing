@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->integer('id_pelapor');
-            $table->integer('id_teknisi');
+            $table->integer('id_teknisi')->nullable();
             $table->integer('id_sub_kategori');
             $table->integer('id_lokasi');
             $table->string('jenis_pengaduan');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('tanggal_proses')->nullable();
             $table->date('tanggal_selesai')->nullable();
             $table->string('keterangan');
-            $table->string('troubleshooting');
+            $table->string('troubleshooting')->nullable();
             $table->string('status');
             $table->timestamps();
         });
