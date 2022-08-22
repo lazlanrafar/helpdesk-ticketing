@@ -6,7 +6,7 @@
             <div class="card-body login-card-body">
                 <div class="login-logo">
                     <a href="/">
-                        Disini Logo
+                        <img src="{{ url('/logo.png') }}" alt="Logo" width="100" />
                     </a>
                 </div>
                 <p class="login-box-msg">Sign in to start your session</p>

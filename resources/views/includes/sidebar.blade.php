@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-light elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link bg-dark">
-        {{-- <img src="{{ url('/bright-dark.png') }}" alt="AdminLTE Logo" class="brand-image" /> --}}
+        <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
         <span class="brand-text font-weight-normal">Helpdesk</span>
     </a>
 
@@ -9,7 +9,8 @@
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <li class="nav-item">
                     <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
