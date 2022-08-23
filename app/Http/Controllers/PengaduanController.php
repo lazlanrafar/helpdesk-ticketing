@@ -56,9 +56,14 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function onprogress($id)
     {
-        //
+        $item = Ticket::find($id);
+        $item->status = 'on progress';
+        $item->id_teknisi = auth()->user()->id;
+        $item->tanggal_proses = date('d-m-Y');
+        $item->save();
+        return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
     }
 
     /**
@@ -92,6 +97,7 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ticket::destroy($id);
+        return redirect()->route('pengaduan.index')->with('success', 'Data berhasil dihapus');
     }
 }

@@ -83,14 +83,23 @@
                                                         })
                                                     }
                                                 </script>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
+
+                                                @if (auth()->user()->level == 'TEKNISI')
+                                                    @if ($item->status == 'open')
+                                                        <a href="/pengaduan/onprogress/{{ $item->id }}"
+                                                            class="btn btn-primary">Konfirmasi</a>
+                                                    @endif
+                                                    @if ($item->status == 'on progress')
+                                                        <a type="button" class="btn btn-primary" data-toggle="modal"
+                                                            data-target="#formConfirm{{ $item->id }}"><i
+                                                                class="fa fa-plus"></i>
+                                                            Konfirmasi</a>
+                                                        @include('pages.pengaduan.confirm')
+                                                    @endif
+                                                @endif
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.pengaduan.update')
                                     @endforeach
                                 </tbody>
                             </table>
