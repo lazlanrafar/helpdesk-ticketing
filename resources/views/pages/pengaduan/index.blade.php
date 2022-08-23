@@ -19,9 +19,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.pengaduan.create')
+                            @if (auth()->user()->level != 'TEKNISI')
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                        class="fa fa-plus"></i> Tambah</a>
+                                @include('pages.pengaduan.create')
+                            @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
