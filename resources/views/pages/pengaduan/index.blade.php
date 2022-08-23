@@ -27,7 +27,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Pelapor</th>
-                                        <th>Teknisi</th>
                                         <th>Kategori</th>
                                         <th>Lokasi</th>
                                         <th>Jenis Pengaduan</th>
@@ -44,7 +43,6 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->pelapor->karyawan->nama }}</td>
-                                            <td>{{ $item->teknisi->nama }}</td>
                                             <td>{{ $item->subkategori->nama_kategori }}</td>
                                             <td>
                                                 {{ $item->lokasi->nama_lokasi }},

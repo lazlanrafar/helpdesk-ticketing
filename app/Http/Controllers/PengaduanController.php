@@ -42,7 +42,9 @@ class PengaduanController extends Controller
     public function store(Request $request)
     {
         $item = $request->all();
-        $item['status'] = 'Menuggu Proses';
+        $item['status'] = 'open';
+        $item['tanggal_pengaduan'] = date('d-m-Y');
+        $item['id_pelapor'] = auth()->user()->id;
 
         Ticket::create($item);
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil ditambahkan');
