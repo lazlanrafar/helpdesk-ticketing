@@ -40,3 +40,4 @@ Route::resource('/user', UserController::class)->middleware('auth');
 
 Route::resource('/pengaduan', PengaduanController::class)->middleware('auth');
 Route::get('/pengaduan/onprogress/{id}', [PengaduanController::class, 'onprogress'])->middleware('auth');
+Route::put('/pengaduan/close/{id}', [PengaduanController::class, 'close'])->middleware('auth');

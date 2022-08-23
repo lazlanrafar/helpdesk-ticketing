@@ -3,7 +3,7 @@
     aria-labelledby="formConfirm{{ $item->id }}Label" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('pengaduan.update', $item->id) }}" method="POST">
+            <form action="/pengaduan/close/{{ $item->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -16,46 +16,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="form-group col-6">
-                            <label for="jenis_pengaduan">Jenis Pengaduan</label>
-                            <select name="jenis_pengaduan" id="jenis_pengaduan" class="form-control" required>
-                                <option value="">-- Pilih Jenis Pengaduan --</option>
-                                @foreach ($list_jenis_pengaduan as $l)
-                                    <option value="{{ $l }}">
-                                        {{ $l }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="id_sub_kategori">Kategori</label>
-                            <select name="id_sub_kategori" id="id_sub_kategori" class="form-control" required>
-                                <option value="">-- Pilih Kategori --</option>
-                                @foreach ($list_sub_kategori as $l)
-                                    <option value="{{ $l->id }}">
-                                        {{ $l->nama_kategori }} -
-                                        {{ $l->nama_kategori }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="id_lokasi">Lokasi</label>
-                            <select name="id_lokasi" id="id_lokasi" class="form-control" required>
-                                <option value="">-- Pilih Lokasi --</option>
-                                @foreach ($list_lokasi as $l)
-                                    <option value="{{ $l->id }}">
-                                        {{ $l->nama_lokasi }},
-                                        {{ $l->departemen }},
-                                        {{ $l->sub_departemen }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group col-12">
-                            <label for="keterangan">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" id="keterangan" placeholder="Masukan Keterangan" rows="5"
-                                required></textarea>
+                            <label for="troubleshooting">Troubleshooting</label>
+                            <textarea class="form-control" name="troubleshooting" id="troubleshooting" placeholder="Masukan troubleshooting"
+                                rows="5" required></textarea>
                         </div>
 
                     </div>

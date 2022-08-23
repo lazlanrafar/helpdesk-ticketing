@@ -43,7 +43,7 @@ class PengaduanController extends Controller
     {
         $item = $request->all();
         $item['status'] = 'open';
-        $item['tanggal_pengaduan'] = date('d-m-Y');
+        $item['tanggal_pengaduan'] = date('Y-m-d');
         $item['id_pelapor'] = auth()->user()->id;
 
         Ticket::create($item);
@@ -61,8 +61,24 @@ class PengaduanController extends Controller
         $item = Ticket::find($id);
         $item->status = 'on progress';
         $item->id_teknisi = auth()->user()->id;
-        $item->tanggal_proses = date('d-m-Y');
+        $item->tanggal_proses = date('Y-m-d');
         $item->save();
+        return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function close(Request $request, $id)
+    {
+        $item = $request->all();
+        $item['status'] = 'close';
+        $item['tanggal_selesai'] = date('Y-m-d');
+
+        Ticket::find($id)->update($item);
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
     }
 
