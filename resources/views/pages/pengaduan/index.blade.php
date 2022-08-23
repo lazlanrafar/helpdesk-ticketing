@@ -55,7 +55,15 @@
                                             <td>{{ $item->tanggal_pengaduan }}</td>
                                             <td>{{ $item->tanggal_proses }}</td>
                                             <td>{{ $item->tanggal_selesai }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>
+                                                @if ($item->status == 'open')
+                                                    <span class="badge badge-warning">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'on progress')
+                                                    <span class="badge badge-info">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'close')
+                                                    <span class="badge badge-success">{{ $item->status }}</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pengaduan.destroy', $item->id) }}" method="POST"
