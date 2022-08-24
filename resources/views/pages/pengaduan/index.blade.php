@@ -19,15 +19,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.pengaduan.create')
+                            @if (auth()->user()->level != 'TEKNISI')
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                        class="fa fa-plus"></i> Tambah</a>
+                                @include('pages.pengaduan.create')
+                            @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Pelapor</th>
-                                        <th>Teknisi</th>
                                         <th>Kategori</th>
                                         <th>Lokasi</th>
                                         <th>Jenis Pengaduan</th>
@@ -44,7 +45,6 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->pelapor->karyawan->nama }}</td>
-                                            <td>{{ $item->teknisi->nama }}</td>
                                             <td>{{ $item->subkategori->nama_kategori }}</td>
                                             <td>
                                                 {{ $item->lokasi->nama_lokasi }},
@@ -55,7 +55,15 @@
                                             <td>{{ $item->tanggal_pengaduan }}</td>
                                             <td>{{ $item->tanggal_proses }}</td>
                                             <td>{{ $item->tanggal_selesai }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>
+                                                @if ($item->status == 'open')
+                                                    <span class="badge badge-warning">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'on progress')
+                                                    <span class="badge badge-info">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'close')
+                                                    <span class="badge badge-success">{{ $item->status }}</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pengaduan.destroy', $item->id) }}" method="POST"
@@ -85,14 +93,23 @@
                                                         })
                                                     }
                                                 </script>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
+
+                                                @if (auth()->user()->level == 'TEKNISI')
+                                                    @if ($item->status == 'open')
+                                                        <a href="/pengaduan/onprogress/{{ $item->id }}"
+                                                            class="btn btn-primary">Konfirmasi</a>
+                                                    @endif
+                                                    @if ($item->status == 'on progress')
+                                                        <a type="button" class="btn btn-primary" data-toggle="modal"
+                                                            data-target="#formConfirm{{ $item->id }}"><i
+                                                                class="fa fa-plus"></i>
+                                                            Konfirmasi</a>
+                                                        @include('pages.pengaduan.confirm')
+                                                    @endif
+                                                @endif
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.pengaduan.update')
                                     @endforeach
                                 </tbody>
                             </table>

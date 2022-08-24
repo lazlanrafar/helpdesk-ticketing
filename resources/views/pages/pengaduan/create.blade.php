@@ -1,10 +1,9 @@
 <!-- Modal -->
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <form action="{{ route('pengaduan.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="id_pelapor" value="{{ request()->session()->get('user')['id'] }}">
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
                         Tambah Pengaduan
@@ -15,17 +14,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="form-group col-6">
-                            <label for="id_teknisi">Teknisi</label>
-                            <select name="id_teknisi" id="id_teknisi" class="form-control" required>
-                                <option value="">-- Pilih Teknisi --</option>
-                                @foreach ($list_karyawan as $l)
-                                    <option value="{{ $l->id }}">
-                                        {{ $l->nama }} - {{ $l->jabatan }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group col-6">
                             <label for="jenis_pengaduan">Jenis Pengaduan</label>
                             <select name="jenis_pengaduan" id="jenis_pengaduan" class="form-control" required>
@@ -61,16 +49,6 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="tanggal_pengaduan">Tanggal Pengaduan</label>
-                            <input type="date" class="form-control" id="tanggal_pengaduan"
-                                placeholder="Masukan Tanggal Pengaduan" name="tanggal_pengaduan" required />
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="troubleshooting">Troubleshooting</label>
-                            <textarea class="form-control" name="troubleshooting" id="troubleshooting" placeholder="Masukan Troubleshooting"
-                                rows="5" required></textarea>
                         </div>
                         <div class="form-group col-12">
                             <label for="keterangan">Keterangan</label>
