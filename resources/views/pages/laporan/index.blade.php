@@ -18,6 +18,31 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            <form action="/laporan" method="POST" class="mb-5">
+                                @csrf
+                                <div class="row align-items-end justify-content-center justify-content-md-start mb-md-3">
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group mb-md-0">
+                                            <label for="">Dari Tanggal</label>
+                                            <input type="date" class="form-control" name="from_date" required
+                                                id="dari_tanggal" value="{{ $from_date }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group mb-md-0">
+                                            <label for="">Sampai Tanggal</label>
+                                            <input type="date" class="form-control" name="end_date" required
+                                                id="sampai_tanggal" value="{{ $end_date }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-2 col-lg-1 mb-3 mb-md-0">
+                                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                                    </div>
+                                    <div class="col-6 col-md-2 col-lg-1 mb-3 mb-md-0">
+                                        <a href="/laporan" class="btn btn-danger w-100">reset</a>
+                                    </div>
+                                </div>
+                            </form>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
