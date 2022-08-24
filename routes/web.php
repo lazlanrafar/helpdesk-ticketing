@@ -12,6 +12,7 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SubKategoriController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::resource('/lokasi', LokasiController::class)->middleware('auth');
 Route::resource('/kategori', KategoriController::class)->middleware('auth');
 Route::resource('/sub-kategori', SubKategoriController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');
+Route::resource('/laporan', LaporanController::class)->middleware('auth');
 
 Route::resource('/pengaduan', PengaduanController::class)->middleware('auth');
 Route::get('/pengaduan/onprogress/{id}', [PengaduanController::class, 'onprogress'])->middleware('auth');
