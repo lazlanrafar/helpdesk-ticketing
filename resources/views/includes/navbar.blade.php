@@ -11,7 +11,7 @@
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="{{ url('/user.png') }}" class="user-image img-circle" alt="User Image" />
-                <span class="hidden-xs" style="color: black">{{ request()->session()->get('user')['username'] }}</span>
+                <span class="hidden-xs" style="color: black">{{ request()->session()->get('karyawan')['nama'] }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a href="/ganti-password" class="dropdown-item">
