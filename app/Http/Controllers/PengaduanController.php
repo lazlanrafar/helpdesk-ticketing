@@ -24,12 +24,15 @@ class PengaduanController extends Controller
         $list_sub_kategori = SubKategori::all();
         $list_lokasi = Lokasi::all();
 
+        $karyawan = Karyawan::where('id', auth()->user()->id_karyawan)->first();
+
         return view('pages.pengaduan.index', [
             'items' => $items,
             'list_karyawan' => $list_karyawan,
             'list_jenis_pengaduan' => $list_jenis_pengaduan,
             'list_sub_kategori' => $list_sub_kategori,
-            'list_lokasi' => $list_lokasi
+            'list_lokasi' => $list_lokasi,
+            'karyawan' => $karyawan
         ]);
     }
 
@@ -43,7 +46,7 @@ class PengaduanController extends Controller
     {
         $item = $request->all();
         $item['status'] = 'open';
-        $item['tanggal_pengaduan'] = date('Y-m-d');
+        $item['tanggal_pengaduan'] = date('Y-m-d H:i:s');
         $item['id_pelapor'] = auth()->user()->id;
 
         Ticket::create($item);
@@ -61,7 +64,7 @@ class PengaduanController extends Controller
         $item = Ticket::find($id);
         $item->status = 'on progress';
         $item->id_teknisi = auth()->user()->id;
-        $item->tanggal_proses = date('Y-m-d');
+        $item->tanggal_proses = date('Y-m-d H:i:s');
         $item->save();
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
     }
@@ -76,7 +79,7 @@ class PengaduanController extends Controller
     {
         $item = $request->all();
         $item['status'] = 'close';
-        $item['tanggal_selesai'] = date('Y-m-d');
+        $item['tanggal_selesai'] = date('Y-m-d H:i:s');
 
         Ticket::find($id)->update($item);
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
