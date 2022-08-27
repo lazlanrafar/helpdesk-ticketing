@@ -18,7 +18,6 @@ class Karyawan extends Model
         'id_lokasi',
         'nama',
         'jabatan',
-        'alamat',
     ];
     
     public function lokasi(){
