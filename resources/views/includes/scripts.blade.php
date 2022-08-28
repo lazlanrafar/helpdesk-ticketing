@@ -71,20 +71,21 @@
 </script>
 
 @if(Request::is('/'))
-    <script>
+<script>
   $(function () {
     let labels = [];
+    let datas = [];
 
     @foreach ($list_data_per_bulan as $item)
             labels.push("{{ $item['month'] }}");
+            datas.push({{ $item['sla_akhir'] }});
     @endforeach
-
+    
     var data = {
       labels  : labels,
       datasets: [
         {
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: datas,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
