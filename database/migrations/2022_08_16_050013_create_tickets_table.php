@@ -23,8 +23,8 @@ return new class extends Migration
             $table->dateTime('tanggal_pengaduan');
             $table->dateTime('tanggal_proses')->nullable();
             $table->dateTime('tanggal_selesai')->nullable();
-            $table->string('keterangan');
-            $table->string('troubleshooting')->nullable();
+            $table->text('keterangan');
+            $table->text('troubleshooting')->nullable();
             $table->string('status');
             $table->timestamps();
         });
