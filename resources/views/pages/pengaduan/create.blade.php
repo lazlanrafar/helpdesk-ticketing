@@ -15,6 +15,14 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="form-group col-6">
+                            <label>Nama</label>
+                            <input type="text" class="form-control" value="{{ $karyawan->nama }}" disabled />
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Departemen</label>
+                            <input type="text" class="form-control" value="{{ $karyawan->lokasi->departemen }}" disabled />
+                        </div>
+                        <div class="form-group col-6">
                             <label for="jenis_pengaduan">Jenis Pengaduan</label>
                             <select name="jenis_pengaduan" id="jenis_pengaduan" class="form-control" required>
                                 <option value="">-- Pilih Jenis Pengaduan --</option>

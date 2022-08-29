@@ -27,6 +27,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Email</th>
                                         <th>Username</th>
                                         <th>Level</th>
                                         <th>Aksi</th>
@@ -38,6 +39,7 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->karyawan->nama }}</td>
+                                            <td>{{ $item->email }}</td>
                                             <td>{{ $item->username }}</td>
                                             <td>{{ $item->level }}</td>
                                             <td>

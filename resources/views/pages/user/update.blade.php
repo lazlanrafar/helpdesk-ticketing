@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label for="id_karyawan">Karyawan</label>
                         <select name="id_karyawan" id="id_karyawan" class="form-control" required>
-                            <option value="">-- Pilih Lokasi --</option>
+                            <option value="">-- Pilih Karyawan --</option>
                             @foreach ($list_karyawan as $j)
                                 <option value="{{ $j->id }}"
                                     {{ $j->id == $item->id_karyawan ? 'selected' : '' }}>
@@ -27,6 +27,11 @@
                                 </option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Masukan email address"
+                            name="email" required value="{{ $item->email }}" />
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>

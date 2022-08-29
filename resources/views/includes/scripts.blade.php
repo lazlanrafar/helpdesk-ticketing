@@ -69,3 +69,54 @@
         });
     });
 </script>
+
+@if(Request::is('/'))
+<script>
+  $(function () {
+    let labels = [];
+    let datas = [];
+
+    @foreach ($list_data_per_bulan as $item)
+            labels.push("{{ $item['month'] }}");
+            datas.push({{ $item['sla_akhir'] }});
+    @endforeach
+    
+    var data = {
+      labels  : labels,
+      datasets: [
+        {
+            data: datas,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }
+      ]
+    }
+
+    var options = {
+        maintainAspectRatio : false,
+        datasetFill : false,
+        responsive : true,
+        legend: {
+            position: 'top',
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    max: 100,
+                    suggestedMin: 0,
+                }
+            }]
+        },
+    }
+
+    var canvas = $('#lineChart').get(0).getContext('2d')
+
+    new Chart(canvas, {
+      type: 'line',
+      data: data,
+      options: options
+    })
+  })
+</script>
+@endif

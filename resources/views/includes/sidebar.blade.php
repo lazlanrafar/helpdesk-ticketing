@@ -23,42 +23,46 @@
                         <p>Pengaduan</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-code-branch"></i>
-                        <p>Lokasi</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/karyawan" class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Karyawan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/kategori" class="nav-link {{ Request::is('kategori') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>Kategori</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/sub-kategori" class="nav-link {{ Request::is('sub-kategori') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>Sub Kategori</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>User</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>Laporan</p>
-                    </a>
-                </li>
+                @if(auth()->user()->level == 'TEKNISI')
+                    <li class="nav-item">
+                        <a href="/lokasi" class="nav-link {{ Request::is('lokasi') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-code-branch"></i>
+                            <p>Lokasi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/karyawan" class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Karyawan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/kategori" class="nav-link {{ Request::is('kategori') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>Kategori</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sub-kategori" class="nav-link {{ Request::is('sub-kategori') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>Sub Kategori</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
+                @endif
+                @if(auth()->user()->level != 'STAFF')
+                    <li class="nav-item">
+                        <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>Laporan</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>

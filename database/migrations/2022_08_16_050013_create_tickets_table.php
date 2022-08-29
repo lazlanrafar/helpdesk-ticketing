@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('id_sub_kategori');
             $table->integer('id_lokasi');
             $table->string('jenis_pengaduan');
-            $table->date('tanggal_pengaduan');
-            $table->date('tanggal_proses')->nullable();
-            $table->date('tanggal_selesai')->nullable();
+            $table->dateTime('tanggal_pengaduan');
+            $table->dateTime('tanggal_proses')->nullable();
+            $table->dateTime('tanggal_selesai')->nullable();
             $table->string('keterangan');
             $table->string('troubleshooting')->nullable();
             $table->string('status');

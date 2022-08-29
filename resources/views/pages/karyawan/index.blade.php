@@ -29,7 +29,6 @@
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>Lokasi</th>
-                                        <th>Alamat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -45,7 +44,6 @@
                                                 {{ $item->lokasi->departemen }},
                                                 {{ $item->lokasi->sub_departemen }}
                                             </td>
-                                            <td>{{ $item->alamat }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('karyawan.destroy', $item->id) }}" method="POST"

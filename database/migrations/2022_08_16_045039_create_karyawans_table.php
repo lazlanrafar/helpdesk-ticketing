@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('id_lokasi');
             $table->string('nama');
             $table->string('jabatan');
-            $table->string('alamat');
             $table->timestamps();
         });
     }
