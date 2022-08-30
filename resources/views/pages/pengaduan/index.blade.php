@@ -101,8 +101,7 @@
                                                     @endif
                                                     @if ($item->status == 'on progress')
                                                         <a type="button" class="btn btn-primary" data-toggle="modal"
-                                                            data-target="#formConfirm{{ $item->id }}"><i
-                                                                class="fa fa-plus"></i>
+                                                            data-target="#formConfirm{{ $item->id }}">
                                                             Konfirmasi</a>
                                                         @include('pages.pengaduan.confirm')
                                                     @endif

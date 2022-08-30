@@ -26,7 +26,7 @@ class DashboardController extends Controller
             }
 
             $rata_rata_sla_gangguan = $panjang != 0 ? $jumlah_sla_gangguan / $panjang : 0;
-            $sla_akhir = 100/100 - $rata_rata_sla_gangguan;
+            $sla_akhir = 100 - $rata_rata_sla_gangguan;
             
             $list_data_per_bulan[$i] = array(
                 'month' => Carbon::now()->subMonths($i)->format('M'),
