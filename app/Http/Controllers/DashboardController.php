@@ -11,9 +11,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $total_open = Ticket::where('status', 'open')->count();
+        $total_onprogress = Ticket::where('status', 'on progress')->count();
+        $total_close = Ticket::where('status', 'close')->count();
+
+
         $list_data_per_bulan = array();
         for ($i=0; $i < 12; $i++) { 
-            $data = Ticket::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'));
+            $data = Ticket::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->where('status', 'close')->get();
             $panjang = $data->count();
             
             $jumlah_sla_gangguan = 0;
@@ -29,12 +34,16 @@ class DashboardController extends Controller
             
             $list_data_per_bulan[$i] = array(
                 'month' => Carbon::now()->subMonths($i)->format('M'),
-                'sla_akhir' => $sla_akhir
+                'sla_akhir' => $sla_akhir,
             );
         }
+        
 
         return view('pages.dashboard.index',[
-            'list_data_per_bulan' => $list_data_per_bulan
+            'list_data_per_bulan' => $list_data_per_bulan,
+            'total_open' => $total_open,
+            'total_onprogress' => $total_onprogress,
+            'total_close' => $total_close,
         ]);
     }
 }
