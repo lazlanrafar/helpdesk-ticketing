@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="level">Level</label>
                         <select name="level" id="level" class="form-control" required>
-                            <option value="">-- Pilih Lokasi --</option>
+                            <option value="">-- Level Akses --</option>
                             @foreach ($list_level as $j)
                                 <option value="{{ $j }}">
                                     {{ $j }}

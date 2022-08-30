@@ -39,7 +39,7 @@
                                 <option value="">-- Pilih Kategori --</option>
                                 @foreach ($list_sub_kategori as $l)
                                     <option value="{{ $l->id }}">
-                                        {{ $l->nama_kategori }} -
+                                        {{ $l->kategoris->nama_kategori }} -
                                         {{ $l->nama_kategori }}
                                     </option>
                                 @endforeach
