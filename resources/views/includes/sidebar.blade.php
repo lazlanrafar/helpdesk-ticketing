@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-dark-light elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link bg-dark">
-        <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
-        <span class="brand-text font-weight-normal">Helpdesk</span>
+    <a href="/" class="brand-link bg-dark text-center">
+        <span class="brand-text font-weight-normal">HELPDESK</span>
     </a>
 
     <!-- Sidebar -->

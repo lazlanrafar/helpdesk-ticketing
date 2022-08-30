@@ -6,15 +6,25 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 use App\Models\Ticket;
+use App\Models\Kategori;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        $data_kategori = Kategori::all();
+
         $total_open = Ticket::where('status', 'open')->count();
         $total_onprogress = Ticket::where('status', 'on progress')->count();
         $total_close = Ticket::where('status', 'close')->count();
 
+        $data_per_kategori = array();
+        for ($i=0; $i < $data_kategori->count(); $i++) {
+            $data_per_kategori[$i] = array(
+                'title' => $data_kategori[$i]->nama_kategori,
+                'data' => array(),
+            );
+        }
 
         $list_data_per_bulan = array();
         for ($i=0; $i < 12; $i++) { 
@@ -31,11 +41,10 @@ class DashboardController extends Controller
             $sla_akhir = 100 - $rata_rata_sla_gangguan;
             
             $list_data_per_bulan[$i] = array(
-                'month' => Carbon::now()->subMonths($i)->format('M'),
+                'month' => Carbon::now()->subMonths($i)->format('M Y'),
                 'sla_akhir' => $sla_akhir,
             );
         }
-        
 
         return view('pages.dashboard.index',[
             'list_data_per_bulan' => $list_data_per_bulan,
