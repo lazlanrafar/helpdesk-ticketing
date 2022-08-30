@@ -12,19 +12,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data_kategori = Kategori::all();
-
         $total_open = Ticket::where('status', 'open')->count();
         $total_onprogress = Ticket::where('status', 'on progress')->count();
         $total_close = Ticket::where('status', 'close')->count();
-
-        $data_per_kategori = array();
-        for ($i=0; $i < $data_kategori->count(); $i++) {
-            $data_per_kategori[$i] = array(
-                'title' => $data_kategori[$i]->nama_kategori,
-                'data' => array(),
-            );
-        }
 
         $list_data_per_bulan = array();
         for ($i=0; $i < 12; $i++) { 
@@ -32,7 +22,7 @@ class DashboardController extends Controller
             $jumlah_sla_gangguan = 0;
 
             foreach ($data as $item ){
-                $waktu_pengerjaan = Carbon::parse($item->tanggal_proses)->diffInSeconds(Carbon::parse($item->tanggal_selesai)) / 3600;
+                $waktu_pengerjaan = Carbon::parse($item->tanggal_proses)->diffInSeconds(Carbon::parse($item->tanggal_selesai));
                 $sla_gangguan = $waktu_pengerjaan / 5 / 160;
                 $jumlah_sla_gangguan = $jumlah_sla_gangguan + $sla_gangguan;
             }
