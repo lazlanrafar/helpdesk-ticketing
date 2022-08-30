@@ -25,16 +25,18 @@
                                 @include('pages.pengaduan.create')
                             @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
-                                <thead>
+                                <thead style="vertical-align: middle-center; text-align: center;">
                                     <tr>
                                         <th>No</th>
                                         <th>Pelapor</th>
                                         <th>Kategori</th>
                                         <th>Lokasi</th>
                                         <th>Jenis Pengaduan</th>
+                                        <th>Keterangan</th>
                                         <th>Tanggal Pengaduan</th>
                                         <th>Tanggal Proses</th>
                                         <th>Tanggal Selesai</th>
+                                        <th>Troubleshooting</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -52,10 +54,12 @@
                                                 {{ $item->lokasi->sub_departemen }}
                                             </td>
                                             <td>{{ $item->jenis_pengaduan }}</td>
-                                            <td>{{ $item->tanggal_pengaduan }}</td>
-                                            <td>{{ $item->tanggal_proses }}</td>
-                                            <td>{{ $item->tanggal_selesai }}</td>
-                                            <td>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_pengaduan }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_proses }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_selesai }}</td>
+                                            <td>{{ $item->troubleshooting }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 @if ($item->status == 'open')
                                                     <span class="badge badge-warning">{{ $item->status }}</span>
                                                 @elseif ($item->status == 'on progress')
@@ -64,16 +68,16 @@
                                                     <span class="badge badge-success">{{ $item->status }}</span>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pengaduan.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
-                                                    <a type="button" class="btn btn-danger"
+                                                    <!-- <a type="button" class="btn btn-danger"
                                                         onclick="handleDelete({{ $item->id }})">
                                                         <i class="fa fa-trash"></i>
-                                                    </a>
+                                                    </a> -->
                                                 </form>
 
                                                 <script>
@@ -97,12 +101,12 @@
                                                 @if (auth()->user()->level == 'TEKNISI')
                                                     @if ($item->status == 'open')
                                                         <a href="/pengaduan/onprogress/{{ $item->id }}"
-                                                            class="btn btn-primary">Konfirmasi</a>
+                                                            class="btn btn-primary" title="Proses Tiket Ini"><i class="fa fa-check"></i></a>
                                                     @endif
                                                     @if ($item->status == 'on progress')
                                                         <a type="button" class="btn btn-primary" data-toggle="modal"
-                                                            data-target="#formConfirm{{ $item->id }}">
-                                                            Konfirmasi</a>
+                                                            data-target="#formConfirm{{ $item->id }}" title="Close Tiket Ini">
+                                                            <i class="fa fa-check"></i></a>
                                                         @include('pages.pengaduan.confirm')
                                                     @endif
                                                 @endif

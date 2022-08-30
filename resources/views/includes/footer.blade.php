@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <strong>Copyright &copy; 2022 -
     </strong>
-    All rights reserved.
+    Rahmad Hidayat.
 </footer>
 
 <!-- Control Sidebar -->
