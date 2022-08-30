@@ -9,6 +9,8 @@ use App\Models\Karyawan;
 use App\Models\SubKategori;
 use App\Models\Lokasi;
 
+use Carbon\Carbon;
+
 class PengaduanController extends Controller
 {
     /**
@@ -46,7 +48,7 @@ class PengaduanController extends Controller
     {
         $item = $request->all();
         $item['status'] = 'open';
-        $item['tanggal_pengaduan'] = date('Y-m-d H:i:s');
+        $item['tanggal_pengaduan'] = Carbon::now();
         $item['id_pelapor'] = auth()->user()->id;
 
         Ticket::create($item);
@@ -64,7 +66,7 @@ class PengaduanController extends Controller
         $item = Ticket::find($id);
         $item->status = 'on progress';
         $item->id_teknisi = auth()->user()->id;
-        $item->tanggal_proses = date('Y-m-d H:i:s');
+        $item->tanggal_proses = Carbon::now();
         $item->save();
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');
     }
@@ -79,7 +81,7 @@ class PengaduanController extends Controller
     {
         $item = $request->all();
         $item['status'] = 'close';
-        $item['tanggal_selesai'] = date('Y-m-d H:i:s');
+        $item['tanggal_selesai'] = Carbon::now();
 
         Ticket::find($id)->update($item);
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil di konfirmasi');

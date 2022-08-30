@@ -12,6 +12,7 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">@include('includes.error-card')</div>
+
         <!-- row 1 -->
         <div class="row">
             <div class="col-lg-3 col-6">
