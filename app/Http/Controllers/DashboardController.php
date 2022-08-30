@@ -19,13 +19,12 @@ class DashboardController extends Controller
             $jumlah_sla_gangguan = 0;
 
             foreach ($data as $item ){
-                // $waktu_pengerjaan = $item->tanggal_proses->diff($item->tanggal_selesai);
-                $waktu_pengerjaan = 3;
+                $waktu_pengerjaan = Carbon::parse($item->tanggal_proses)->diffInSeconds(Carbon::parse($item->tanggal_selesai)) / 3600;
                 $sla_gangguan = $waktu_pengerjaan / 5 / 160;
-                $jumlah_sla_gangguan += $sla_gangguan;
+                $jumlah_sla_gangguan = $jumlah_sla_gangguan + $sla_gangguan;
             }
 
-            $rata_rata_sla_gangguan = $panjang != 0 ? $jumlah_sla_gangguan / $panjang : 0;
+            $rata_rata_sla_gangguan = $panjang != 0 ? $jumlah_sla_gangguan / $panjang : 100;
             $sla_akhir = 100 - $rata_rata_sla_gangguan;
             
             $list_data_per_bulan[$i] = array(
