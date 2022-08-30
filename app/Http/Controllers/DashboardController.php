@@ -18,9 +18,7 @@ class DashboardController extends Controller
 
         $list_data_per_bulan = array();
         for ($i=0; $i < 12; $i++) { 
-            $data = Ticket::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->where('status', 'close')->get();
-            $panjang = $data->count();
-            
+            $data = Ticket::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->where('status', 'close')->get();            
             $jumlah_sla_gangguan = 0;
 
             foreach ($data as $item ){
@@ -29,7 +27,7 @@ class DashboardController extends Controller
                 $jumlah_sla_gangguan = $jumlah_sla_gangguan + $sla_gangguan;
             }
 
-            $rata_rata_sla_gangguan = $panjang != 0 ? $jumlah_sla_gangguan / $panjang : 100;
+            $rata_rata_sla_gangguan = $data->count() != 0 ? $jumlah_sla_gangguan / $data->count() : 100;
             $sla_akhir = 100 - $rata_rata_sla_gangguan;
             
             $list_data_per_bulan[$i] = array(

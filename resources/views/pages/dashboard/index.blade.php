@@ -22,7 +22,7 @@
                         <p>Open</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-book"></i>
+                        <i class="ion ion-android-open"></i>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <p>On Progress</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-grid"></i>
+                        <i class="ion ion-android-time"></i>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         <p>Close</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-calendar"></i>
+                        <i class="ion ion-android-done"></i>
                     </div>
                 </div>
             </div>
