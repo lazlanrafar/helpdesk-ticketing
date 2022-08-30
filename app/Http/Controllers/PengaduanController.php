@@ -20,7 +20,13 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $items = Ticket::all();
+        if(auth()->user()->level != 'TEKNISI'){
+            $items = Ticket::where('id_pelapor', auth()->user()->id)->get();
+        }else{
+            $items = Ticket::all();
+        }
+            
+
         $list_karyawan = Karyawan::all();
         $list_jenis_pengaduan = ['Gangguan Teknologi Informasi', 'Pemeliharaan Teknologi Informasi', 'Permintaan'];
         $list_sub_kategori = SubKategori::all();

@@ -86,7 +86,7 @@
       datasets: [
         {
             data: datas,
-            label : 'Laporan',
+            label : 'SLA Perbulan',
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
@@ -99,7 +99,7 @@
         datasetFill : false,
         responsive : true,
         legend: {
-            position: 'top',
+            display : false,
         },
         scales: {
             yAxes: [{
