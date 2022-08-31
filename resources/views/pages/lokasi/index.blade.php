@@ -24,7 +24,7 @@
                             @include('pages.lokasi.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="vertical-align: middle-center; text-align: center;">
                                         <th>No</th>
                                         <th>Nama Lokasi</th>
                                         <th>Departemen</th>
@@ -36,11 +36,11 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>{{ $item->nama_lokasi }}</td>
-                                            <td>{{ $item->departemen }}</td>
-                                            <td>{{ $item->sub_departemen }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->nama_lokasi }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->departemen }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->sub_departemen }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('lokasi.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
@@ -48,7 +48,7 @@
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
                                                         onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash"></i>
+                                                        <i class="fa fa-trash" title="Hapus Data Lokasi"></i>
                                                     </a>
                                                 </form>
 
@@ -71,7 +71,7 @@
                                                 </script>
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
+                                                    <i class="fa fa-edit" title="Ubah Data Lokasi"></i>
                                                 </a>
                                             </td>
                                         </tr>

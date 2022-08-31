@@ -24,7 +24,7 @@
                             @include('pages.user.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="vertical-align: middle-center; text-align: center;">
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
@@ -37,12 +37,12 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
                                             <td>{{ $item->karyawan->nama }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->username }}</td>
-                                            <td>{{ $item->level }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->level }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
@@ -50,7 +50,7 @@
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
                                                         onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash"></i>
+                                                        <i class="fa fa-trash" title="Hapus Data User"></i>
                                                     </a>
                                                 </form>
 
@@ -73,7 +73,7 @@
                                                 </script>
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
+                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
                                                 </a>
                                             </td>
                                         </tr>

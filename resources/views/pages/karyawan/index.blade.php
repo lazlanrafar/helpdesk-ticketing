@@ -24,7 +24,7 @@
                             @include('pages.karyawan.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="vertical-align: middle-center; text-align: center;">
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
@@ -36,15 +36,15 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->jabatan }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->nama }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->jabatan }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 {{ $item->lokasi->nama_lokasi }},
                                                 {{ $item->lokasi->departemen }},
                                                 {{ $item->lokasi->sub_departemen }}
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('karyawan.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
@@ -52,7 +52,7 @@
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
                                                         onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash"></i>
+                                                        <i class="fa fa-trash" title="Hapus Data Karyawan"></i>
                                                     </a>
                                                 </form>
 
@@ -75,7 +75,7 @@
                                                 </script>
                                                 <a type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit"></i>
+                                                    <i class="fa fa-edit" title="Ubah Data Karyawan"></i>
                                                 </a>
                                             </td>
                                         </tr>

@@ -45,7 +45,7 @@
                             </form>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="vertical-align: middle-center; text-align: center;">
                                         <th>No</th>
                                         <th>Pelapor</th>
                                         <th>Kategori</th>
@@ -61,7 +61,7 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
                                             <td>{{ $item->pelapor->karyawan->nama }}</td>
                                             <td>{{ $item->subkategori->nama_kategori }}</td>
                                             <td>
@@ -70,10 +70,10 @@
                                                 {{ $item->lokasi->sub_departemen }}
                                             </td>
                                             <td>{{ $item->jenis_pengaduan }}</td>
-                                            <td>{{ $item->tanggal_pengaduan }}</td>
-                                            <td>{{ $item->tanggal_proses }}</td>
-                                            <td>{{ $item->tanggal_selesai }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_pengaduan }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_proses }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->tanggal_selesai }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->status }}</td>
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
