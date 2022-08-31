@@ -45,7 +45,7 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
                                             <td>{{ $item->pelapor->karyawan->nama }}</td>
                                             <td>{{ $item->subkategori->nama_kategori }}</td>
                                             <td>
