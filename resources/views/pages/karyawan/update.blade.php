@@ -21,6 +21,12 @@
                             name="nama" required value="{{ $item->nama }}" />
                     </div>
                     <div class="form-group">
+                        <label for="nik">Nomor Induk Karyawan</label>
+                        <input type="text" class="form-control" id="nik"
+                            placeholder="Masukan Nomor Induk Karyawan" name="nik" required
+                            value="{{ $item->nik }}" />
+                    </div>
+                    <div class="form-group">
                         <label>Jabatan</label>
                         <input type="text" class="form-control" id="jabatan" placeholder="Masukan jabatan"
                             name="jabatan" required value="{{ $item->jabatan }}" />

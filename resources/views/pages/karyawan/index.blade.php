@@ -26,6 +26,7 @@
                                 <thead>
                                     <tr style="vertical-align: middle-center; text-align: center;">
                                         <th>No</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>Lokasi</th>
@@ -36,9 +37,14 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td style="vertical-align: middle-center; text-align: center;">{{ $i }}</td>
-                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->nama }}</td>
-                                            <td style="vertical-align: middle-center; text-align: center;">{{ $item->jabatan }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
+                                                {{ $i }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
+                                                {{ $item->nik }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
+                                                {{ $item->nama }}</td>
+                                            <td style="vertical-align: middle-center; text-align: center;">
+                                                {{ $item->jabatan }}</td>
                                             <td style="vertical-align: middle-center; text-align: center;">
                                                 {{ $item->lokasi->nama_lokasi }},
                                                 {{ $item->lokasi->departemen }},
