@@ -19,6 +19,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            <ul class="nav nav-tabs mb-3">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $status == 'all' ? 'active font-weight-bold' : '' }}"
+                                        href="/pengaduan">All</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $status == 'open' ? 'active font-weight-bold' : '' }}"
+                                        href="/pengaduan?status=open">Open</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $status == 'on progress' ? 'active font-weight-bold' : '' }}"
+                                        href="/pengaduan?status=on progress">On Progress</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $status == 'close' ? 'active font-weight-bold' : '' }}"
+                                        href="/pengaduan?status=close">Close</a>
+                                </li>
+                            </ul>
                             @if (auth()->user()->level != 'TEKNISI')
                                 <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                         class="fa fa-plus"></i> Tambah</a>
@@ -87,9 +105,9 @@
                                                     @csrf
                                                     @method('delete')
                                                     <!-- <a type="button" class="btn btn-danger"
-                                                                                        onclick="handleDelete({{ $item->id }})">
-                                                                                        <i class="fa fa-trash"></i>
-                                                                                    </a> -->
+                                                                                                                                                                                        onclick="handleDelete({{ $item->id }})">
+                                                                                                                                                                                        <i class="fa fa-trash"></i>
+                                                                                                                                                                                    </a> -->
                                                 </form>
 
                                                 <script>

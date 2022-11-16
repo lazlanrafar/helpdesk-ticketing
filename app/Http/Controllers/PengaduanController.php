@@ -18,12 +18,20 @@ class PengaduanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(auth()->user()->level != 'TEKNISI'){
             $items = Ticket::where('id_pelapor', auth()->user()->id)->orderBy('tanggal_pengaduan', 'DESC')->get();
         }else{
             $items = Ticket::orderBy('tanggal_pengaduan', 'DESC')->get();
+        }
+
+        if($request->status){
+            $status = $request->status;
+            $response = $items->where('status', $request->status);
+        }else{
+            $status = 'all';
+            $response = $items;
         }
 
         $list_karyawan = Karyawan::all();
@@ -34,7 +42,8 @@ class PengaduanController extends Controller
         $karyawan = Karyawan::where('id', auth()->user()->id_karyawan)->first();
 
         return view('pages.pengaduan.index', [
-            'items' => $items,
+            'items' => $response,
+            'status' => $status,
             'list_karyawan' => $list_karyawan,
             'list_jenis_pengaduan' => $list_jenis_pengaduan,
             'list_sub_kategori' => $list_sub_kategori,
