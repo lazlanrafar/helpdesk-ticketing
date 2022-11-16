@@ -78,7 +78,7 @@
                             <div class="inner">
                                 <h3>{{ $total_open }}</h3>
 
-                                <p>Open</p>
+                                <p>Pengaduan Open</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-android-open"></i>
@@ -108,12 +108,27 @@
                             <div class="inner">
                                 <h3>{{ $total_close }}</h3>
 
-                                <p>Close</p>
+                                <p>Pengaduan Close</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-android-done"></i>
                             </div>
                             <a href="/pengaduan?status=close" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>{{ $total_open + $total_onprogress + $total_close }}</h3>
+
+                                <p>Total Pengaduan</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-android-list"></i>
+                            </div>
+                            <a href="/pengaduan" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

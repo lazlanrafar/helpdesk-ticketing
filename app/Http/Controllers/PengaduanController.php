@@ -20,7 +20,7 @@ class PengaduanController extends Controller
      */
     public function index(Request $request)
     {
-        if(auth()->user()->level != 'TEKNISI'){
+        if(auth()->user()->level == 'STAFF'){
             $items = Ticket::where('id_pelapor', auth()->user()->id)->orderBy('tanggal_pengaduan', 'DESC')->get();
         }else{
             $items = Ticket::orderBy('tanggal_pengaduan', 'DESC')->get();
