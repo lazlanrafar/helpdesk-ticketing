@@ -12,10 +12,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $total_open = Ticket::where('status', 'open')->count();
-        $total_onprogress = Ticket::where('status', 'on progress')->count();
-        $total_close = Ticket::where('status', 'close')->count();
-
+        if(auth()->user()->level != 'TEKNISI'){
+            $total_open = Ticket::where('status', 'open')->where('id_pelapor', auth()->user()->id)->count();
+            $total_onprogress = Ticket::where('status', 'on progress')->where('id_pelapor', auth()->user()->id)->count();
+            $total_close = Ticket::where('status', 'close')->where('id_pelapor', auth()->user()->id)->count();
+        }else{
+            $total_open = Ticket::where('status', 'open')->count();
+            $total_onprogress = Ticket::where('status', 'on progress')->count();
+            $total_close = Ticket::where('status', 'close')->count();
+        }
+        
         $list_data_per_bulan = array();
         for ($i=0; $i < 12; $i++) { 
             $data = Ticket::whereMonth('created_at', Carbon::now()->subMonths($i)->format('m'))->where('status', 'close')->get();            
