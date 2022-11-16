@@ -68,7 +68,7 @@
                                                 {{ $i }}</td>
                                             <td>
                                                 @if ($item->teknisi)
-                                                    {{ $item->teknisi->nama }}
+                                                    {{ $item->teknisi->karyawan->nama }}
                                                 @else
                                                     -
                                                 @endif
@@ -105,9 +105,9 @@
                                                     @csrf
                                                     @method('delete')
                                                     <!-- <a type="button" class="btn btn-danger"
-                                                                                                                                                                                        onclick="handleDelete({{ $item->id }})">
-                                                                                                                                                                                        <i class="fa fa-trash"></i>
-                                                                                                                                                                                    </a> -->
+                                                                                                                                                                                                onclick="handleDelete({{ $item->id }})">
+                                                                                                                                                                                                <i class="fa fa-trash"></i>
+                                                                                                                                                                                            </a> -->
                                                 </form>
 
                                                 <script>
